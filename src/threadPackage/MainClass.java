@@ -15,7 +15,7 @@ public class MainClass {
         var students = new LinkedBlockingDeque<Student>();
         new Thread(new StudentsGenerator(students)).start();
 
-        var separator = new studentSeparator(subjects, students);
+        var separator = new StudentSeparator(subjects, students);
         new Thread(separator).start();
 
         for (String subject : MainClass.subjects) {

@@ -6,12 +6,12 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
-public class studentSeparator implements Runnable {
+public class StudentSeparator implements Runnable {
 
     Map<String, LinkedBlockingDeque<Student>> blockingQueueMap = new HashMap<>();
     BlockingDeque<Student> theAllStudents;
 
-    public studentSeparator(String[] subjects, BlockingDeque<Student> theAllStudents){
+    public StudentSeparator(String[] subjects, BlockingDeque<Student> theAllStudents){
         for (String subject : subjects) {
             blockingQueueMap.put(subject, new LinkedBlockingDeque<>());
             this.theAllStudents = theAllStudents;
