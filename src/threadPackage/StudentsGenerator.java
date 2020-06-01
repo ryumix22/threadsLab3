@@ -13,6 +13,7 @@ public class StudentsGenerator implements Runnable {
         for (int i = 0; i < MainClass.numberOfStudents; i++) {
             var student = Student.nextStudent();
             this.students.add(student);
+            //dsa
         }
     }
 }
