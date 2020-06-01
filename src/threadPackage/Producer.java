@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingDeque;
 
 public class Producer implements Runnable {
 
-    private final BlockingDeque<Student> allStudentsQueue;
+    private final BlockingDeque<Student> queueBeforeDoor;
     private final BlockingDeque<Student> robotQueue;
 
     private final String subjectTitle;
@@ -13,7 +13,7 @@ public class Producer implements Runnable {
 
 
     public Producer(BlockingDeque<Student> allStudentsQueue, Robot robot) {
-        this.allStudentsQueue = allStudentsQueue;
+        this.queueBeforeDoor = allStudentsQueue;
         this.robotQueue = robot.getQueue();
         this.subjectTitle = robot.getSubjectTitle();
         this.robot = robot;
@@ -24,7 +24,7 @@ public class Producer implements Runnable {
         while (true) {
             try {
                 System.out.println("Test free adding in classroom");
-                Student student = this.allStudentsQueue.takeFirst();
+                Student student = this.queueBeforeDoor.takeFirst();
                 System.out.println(String.format("!! (Preparing) %s: %s", this.subjectTitle, student.studentName));
                 robotQueue.put(student);
                 String head = Robot.createHeadingString(this.subjectTitle, this.robot.getQueue().size(),
