@@ -12,12 +12,7 @@ public class StudentsGenerator implements Runnable {
     public void run() {
         for (int i = 0; i < MainClass.numberOfStudents; i++) {
             var student = Student.nextStudent();
-            try {
-                this.students.add(student);
-                Thread.sleep(MainClass.studentsDelay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            this.students.add(student);
         }
     }
 }
