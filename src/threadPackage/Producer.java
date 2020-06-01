@@ -23,8 +23,8 @@ public class Producer implements Runnable {
         System.out.println(this.subjectTitle + ": producer started...");
         while (true) {
             try {
-                System.out.println("Test free adding in classroom");
                 Student student = this.queueBeforeDoor.takeFirst();
+                //System.out.println("Test free adding in classroom");
                 System.out.println(String.format("!! (Preparing) %s: %s", this.subjectTitle, student.studentName));
                 robotQueue.put(student);
                 String head = Robot.createHeadingString(this.subjectTitle, this.robot.getQueue().size(),

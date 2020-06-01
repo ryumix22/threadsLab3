@@ -45,13 +45,13 @@ public class Robot implements Runnable {
             e.printStackTrace();
         }
         while (true) {
-            System.out.println("Test free checking tasks");
             try {
                 student = queue.takeFirst();
                 queue.putFirst(student);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            //System.out.println("Test free checking tasks");
             if ((student = queue.peek()) != null)
                 try {
                     while (student.tasksCount > 0) {

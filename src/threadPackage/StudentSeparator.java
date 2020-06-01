@@ -26,8 +26,8 @@ public class StudentSeparator implements Runnable {
     public void run() {
         while (true){
             try {
-                System.out.println("test free separation");
                 var student = this.theAllStudents.take();
+                //System.out.println("test free separation");
                 blockingQueueMap.get(student.subjectTitle).putLast(student);
             } catch (InterruptedException e) {
                 e.printStackTrace();
